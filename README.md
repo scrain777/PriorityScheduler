@@ -1,7 +1,10 @@
 <b>Scheduler<br />
 =========</b><br />
-Author: J. Ian Lindsay<br />
-Date:   2013.07.10<br />
+Author: Dr. Steven P. Crain<br/>
+Date: 2016.12.09<br/>
+Status: Recently forked, so everything is still as left by the original author.<br/>
+
+Based on the Scheduler library by J. Ian Lindsay (2013.07.10).<br />
 <br />
 This class is meant to be a real-time task scheduler for small microcontrollers. It<br />
 should be driven by a periodic interrupt of some sort, but it may also be effectively<br />
@@ -27,6 +30,7 @@ the library, you may excise all the related code from the class to save space.<b
 The output functions of the class depend on sprintf, which increases the binary's size by<br />
 roughtly 2k. Again, if space is a serious constraint, you will not break anything by removing<br />
 these functions.<br />
+
 <br />
 Actual overhead of running the scheduler is very small. That overhead grows logrithmicly with<br />
 the number of schedules being serviced. Each defined schedule takes about 30 bytes of RAM. If<br />
@@ -103,7 +107,7 @@ PID 8 is the process that dumps the profiling data to the serial port once every
 <br />
 <b>License<br />
 =======</b><br />
-Copyright (C) 2013 J. Ian Lindsay<br />
+Copyright (C) 2013 J. Ian Lindsay, (C) 2016 Dr. Steven P. Crain<br />
 All rights reserved.<br />
 <br />
 This library is free software; you can redistribute it and/or<br />

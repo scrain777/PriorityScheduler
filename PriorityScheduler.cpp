@@ -2,6 +2,7 @@
 File:   Scheduler.cpp
 Author: J. Ian Lindsay
 Date:   2013.07.10
+Changelog: Dr. Steven P. Crain 2016.12.09 Updated to work with Arduino 1.6.13 and changed name.
 
 This class is meant to be a real-time task scheduler for small microcontrollers. It
 should be driven by a periodic interrupt of some sort, but it may also be effectively
@@ -10,7 +11,7 @@ used with a reliable polling scheme (at the possible cost of timing accuracy).
 A simple profiler is included which will allow the user of this class to determine
 run-times and possibly even adjust task duty cycles accordingly.
 
-Copyright (C) 2013 J. Ian Lindsay
+Copyright (C) 2013 J. Ian Lindsay, (C) 2016 Dr. Steven P. Crain
 All rights reserved.
 
 This library is free software; you can redistribute it and/or
@@ -28,8 +29,8 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef SCHEDULER_H
-#include <Scheduler/Scheduler.h>
+#ifndef PRIORITYSCHEDULER_H
+#include <PriorityScheduler.h>
 #endif
 
 

@@ -2,12 +2,13 @@
 File:   Scheduler.ino
 Author: J. Ian Lindsay 
 Date:   2013.06.28
+Changelog: Dr. Steven P. Crain 2016.12.09 updated to use PriorityScheduler and to work correctly with Arduino 1.6.13.
 
 This is an example sketch that will demonstrate basic usage of the Scheduler library.
 There are numerous ways that the package can be used. This is only a very basic example.
 
 
-Copyright (C) 2013 J. Ian Lindsay
+Copyright (C) 2013 J. Ian Lindsay, (C) 2016 Dr. Steven P. Crain
 All rights reserved.
 
 This library is free software; you can redistribute it and/or
@@ -31,8 +32,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include <avr/interrupt.h>
 
 
-#ifndef SCHEDULER_H
-#include <Scheduler/Scheduler.h>
+#ifndef PRIORITYSCHEDULER_H
+#include <PriorityScheduler.h>
 #endif
 
 // Pin definitions...
@@ -124,6 +125,10 @@ void timerCallbackScheduler() {
 void setup() {                
   Serial.begin(9600);
 
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(PIEZO_PIN, OUTPUT);
+  pinMode(ANALOG_PIN, INPUT);
+  
   scheduler.createSchedule(250, 8, true, led_schedule_service);                        // Flash the LED four times at 2Hz. Auto-clears.
   analog_read_pid   = scheduler.createSchedule(1500, -1, false, analog_read_fxn);      // Read analog data every 1.5 seconds.
   profiler_dump_pid = scheduler.createSchedule(10000, -1, false, printProfilingData);  // Print profiling data once every 10 seconds.
